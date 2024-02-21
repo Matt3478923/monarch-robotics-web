@@ -1,5 +1,45 @@
+.menuBar {
+  display: flex;
+  background-color: black;
+}
+
+.menuBarItem {
+  font-family: sans-serif;
+  margin-left: 30px;
+  padding: 15px 10px 15px 10px;
+  font-size: 20px;
+}
+
+.menuBarImage {
+  height: 25px;
+}
+
+.menuBarLink:link {
+  color: white;
+  text-decoration: none;
+}
+
+.menuBarLink:visited {
+  color: white;
+  text-decoration: none;
+}
+
+.menuBarLink:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.menuBarLink:active {
+  color: white;
+  text-decoration: none;
+}
+
 .App {
   text-align: center;
+}
+
+.wrapper {
+  padding: 20px;
 }
 
 .App-logo {
