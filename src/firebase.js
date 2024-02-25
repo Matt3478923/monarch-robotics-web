@@ -2,13 +2,12 @@ import firebase from  'firebase/compat/app'
 import 'firebase/compat/auth'
 
 const app = firebase.initializeApp({
-    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
-    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
-    databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
-    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
-    storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
-    messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
-    appId: process.env.REACT_APP_FIREBASE_APP_ID
+    apiKey: "AIzaSyDZDhREBZZ7iQ7HlaotqDiMM_fl3IWqoAU",
+    authDomain: "monarch-robotics-web-apps.firebaseapp.com",
+    projectId: "monarch-robotics-web-apps",
+    storageBucket: "monarch-robotics-web-apps.appspot.com",
+    messagingSenderId: "526456036878",
+    appId: "1:526456036878:web:4616133b243da990da265f"
 })
 
 export const auth = app.auth()
