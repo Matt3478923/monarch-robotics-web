@@ -3,7 +3,7 @@ import "./Carpool.css"
 
 export default function Carpool() {
     return(
-        <div>
+        <div className="mainDiv">
             <h1>Carpool</h1>
             <div className="alert">
                 <h2>Warning!</h2>

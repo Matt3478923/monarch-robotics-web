@@ -5,6 +5,11 @@
     border-radius: 10px;
     border: 2px red;
 }
+.mainDiv {
+    font-family: sans-serif;
+    margin-left: 25px;
+    margin-right: 25px;
+}
 .carpoolEvents {
     display: flex;
     flex-direction: column;

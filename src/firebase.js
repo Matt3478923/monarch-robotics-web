@@ -4,6 +4,7 @@ import 'firebase/compat/auth'
 const app = firebase.initializeApp({
     apiKey: "AIzaSyDZDhREBZZ7iQ7HlaotqDiMM_fl3IWqoAU",
     authDomain: "monarch-robotics-web-apps.firebaseapp.com",
+    databaseURL: "https://monarch-robotics-web-apps-default-rtdb.firebaseio.com",
     projectId: "monarch-robotics-web-apps",
     storageBucket: "monarch-robotics-web-apps.appspot.com",
     messagingSenderId: "526456036878",

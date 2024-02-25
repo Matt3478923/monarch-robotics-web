@@ -1,6 +1,10 @@
 import React, { useRef, useState } from "react"
 import { Form, Button, Card, Alert } from "react-bootstrap"
 import { useAuth } from "../../contexts/AuthContext"
+import app from "../../firebase";
+import { getDatabase, ref, set, push } from "firebase/database";
+import { useNavigate } from 'react-router-dom';
+
 
 export default function Signup() {
     const emailRef = useRef()
@@ -9,6 +13,22 @@ export default function Signup() {
     const { signup } = useAuth()
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
+
+    let [inputValue1, setInputValue1] = useState("");
+    let [inputValue2, setInputValue2] = useState("");
+
+    const saveData = async () => {
+        const db = getDatabase(app);
+        const newDocRef = push(ref(db, "nature/fruits"));
+        set(newDocRef, {
+            fruitName: inputValue1,
+            fruitDefinition: inputValue2
+        }).then( () => {
+            alert("data saved successfully")
+        }).catch((error) => {
+            alert("error: ", error.message);
+        })
+    }
 
     async function handleSubmit(e) {
         e.preventDefault()

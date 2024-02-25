@@ -59,3 +59,28 @@
     border-radius: 5px;
     font-family: sans-serif;
 }
+
+.announcementCard {
+    background-color: #EEEEEE;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.announcements {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+}
+
+.announcementTitle {
+    margin-top: 0;
+}
+
+.announcementText {
+
+}
+
+.announcementInfo {
+    color: #9E9E9E;
+}
