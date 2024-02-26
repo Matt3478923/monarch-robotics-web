@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { Form, Button, Alert } from "react-bootstrap"
 import { useAuth } from "../../contexts/AuthContext"
-import { useNavigate } from "react-router-dom"
+import {Navigate, useNavigate} from "react-router-dom"
 import "./Preferences.css"
 import app from "../../firebase"
 import { getDatabase, ref, set, get } from "firebase/database";
@@ -10,16 +10,19 @@ export default function Preferences() {
     const emailRef = useRef()
     const passwordRef = useRef()
     const passwordConfirmRef = useRef()
-    const { currentUser, updatePassword, updateEmail, logout } = useAuth()
     const [error, setError] = useState("")
     const [loading, setLoading] = useState(false)
     const navigate = useNavigate()
 
-    const {userID} = currentUser.id;
+    const { currentUser, updatePassword, updateEmail, logout } = useAuth()
 
     let [firstName, setFirstName] = useState("")
     let [lastName, setLastName] = useState("")
     let [notifyEmail, setNotifyEmail] = useState("")
+
+    // Check if currentUser is not set
+    console.log("currentUser:", currentUser);
+    const { uid: userID } = currentUser;
 
     useEffect(() => {
         const fetchData = async () => {
@@ -138,38 +141,33 @@ export default function Preferences() {
                 </Form>
                 <br/>
                 <h2 className="centeredTitle">Profile</h2>
-                {error && <Alert variant="danger">{error}</Alert>}
-                <Form onSubmit={handleSubmit} className="centeredForm">
-                    <Form.Group id="email">
-                        <Form.Label>First Name</Form.Label>
-                        <Form.Control
-                            type="text"
-                            required
-                            value={firstName}
-                            className="field"
-                            onChange={(e) => setFirstName(e.target.value)}
-                        />
-                        <Form.Label>Last Name</Form.Label>
-                        <Form.Control
-                            type="text"
-                            required
-                            value={lastName}
-                            className="field"
-                            onChange={(e) => setLastName(e.target.value)}
-                        />
-                        <Form.Label>Notification Email</Form.Label>
-                        <Form.Control
-                            type="text"
-                            required
-                            value={notifyEmail}
-                            className="field"
-                            onChange={(e) => setNotifyEmail(e.target.value)}
-                        />
-                    </Form.Group>
-                    <Button onClick={overwriteData} className="centeredButton" type="submit">
-                        Update
-                    </Button>
-                </Form>
+                <div className="centeredForm">
+                <p className="centeredTitle">First Name</p>
+                <input
+                    className="field"
+                    type="text"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                />
+
+                <p className="centeredTitle">Last Name</p>
+                <input
+                    className="field"
+                    type="text"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                />
+
+                <p className="centeredTitle">Notifications Email</p>
+                <input
+                    className="field"
+                    type="text"
+                    value={notifyEmail}
+                    onChange={(e) => setNotifyEmail(e.target.value)}
+                />
+
+                    <button className="centeredButton" onClick={overwriteData}>Update</button>
+                </div>
             </div>
         </>
     )

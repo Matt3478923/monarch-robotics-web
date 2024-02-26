@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Dashboard from "../Dashboard/Dashboard"
 import Login from "../Login/Login"
 import PrivateRoute from "../PrivateRoute/PrivateRoute"
+import PrimaryRouter from "../PrivateRoute/PrimaryRouter"
+import LeadRouter from "../PrivateRoute/LeadRoute"
 import ForgotPassword from "../ForgotPassword/ForgotPassword"
 import Preferences from "../Preferences/Preferences";
 import "./App.css"
@@ -15,6 +17,8 @@ import Events from "../Events/Events";
 import Inventory from "../Inventory/Inventory";
 import Purchase from "../Purchase/Purchase";
 import NewPost from "../Announcement/Announcement"
+import AccessDenied from "../AccessDenied/AccessDenied";
+import CreateUser from "../CreateUser/CreateUser"
 
 function App() {
     return (
@@ -40,8 +44,11 @@ function App() {
                         <Route exact path='/' element={<PrivateRoute/>}>
                             <Route exact path='/' element={<Dashboard/>}/>
                         </Route>
-                        <Route exact path='/create-announcement' element={<PrivateRoute/>}>
+                        <Route exact path='/create-announcement' element={<LeadRouter/>}>
                             <Route exact path='/create-announcement' element={<NewPost/>}/>
+                        </Route>
+                        <Route exact path='/create-user' element={<LeadRouter/>}>
+                            <Route exact path='/create-user' element={<CreateUser/>}/>
                         </Route>
                         <Route exact path='/preferences' element={<PrivateRoute/>}>
                             <Route exact path='/preferences' element={<Preferences/>}/>
@@ -63,6 +70,7 @@ function App() {
                         </Route>
                         <Route path='/login' element={<Login />} />
                         <Route path='/forgot-password' element={<ForgotPassword />} />
+                        <Route path='/access-denied' element={<AccessDenied />} />
                     </Routes>
                 </AuthProvider>
             </Router>
