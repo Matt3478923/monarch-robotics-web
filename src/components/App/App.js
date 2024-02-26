@@ -19,6 +19,7 @@ import Purchase from "../Purchase/Purchase";
 import NewPost from "../Announcement/Announcement"
 import AccessDenied from "../AccessDenied/AccessDenied";
 import CreateUser from "../CreateUser/CreateUser"
+import CreateEvent from "../CreateEvent/Event"
 
 function App() {
     return (
@@ -46,6 +47,9 @@ function App() {
                         </Route>
                         <Route exact path='/create-announcement' element={<LeadRouter/>}>
                             <Route exact path='/create-announcement' element={<NewPost/>}/>
+                        </Route>
+                        <Route exact path='/create-event' element={<LeadRouter/>}>
+                            <Route exact path='/create-event' element={<CreateEvent/>}/>
                         </Route>
                         <Route exact path='/create-user' element={<LeadRouter/>}>
                             <Route exact path='/create-user' element={<CreateUser/>}/>
