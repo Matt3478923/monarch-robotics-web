@@ -20,7 +20,7 @@ export default function Dashboard() {
             const snapshot = await get(dbRef);
             if (snapshot.exists()) {
                 const newArray = Object.values(snapshot.val());
-                setAnnouncementArray(newArray.reverse());
+                setAnnouncementArray(newArray);
             } else {
                 alert("error");
             }

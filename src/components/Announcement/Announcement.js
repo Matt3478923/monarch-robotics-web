@@ -22,7 +22,7 @@ export default function Announcement() {
             date: Number(current),
             datestring: `${current.getMonth()+1}/${current.getDate()}/${current.getFullYear()}`,
         }).then( () => {
-            alert("data saved successfully")
+            alert("Post Created")
         }).catch((error) => {
             alert("error: ", error.message);
         })
