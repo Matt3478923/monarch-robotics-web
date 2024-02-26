@@ -19,7 +19,8 @@ export default function Dashboard() {
             const dbRef = ref(db, "announcements/messages");
             const snapshot = await get(dbRef);
             if (snapshot.exists()) {
-                setAnnouncementArray(Object.values(snapshot.val()));
+                const newArray = Object.values(snapshot.val());
+                setAnnouncementArray(newArray.reverse());
             } else {
                 alert("error");
             }
@@ -34,11 +35,11 @@ export default function Dashboard() {
                 <div className="dashboardAnnouncements">
                     <h1 className="dashboardTitleH1">Announcements</h1>
                     <div className="announcements">
-                        {announcementArray.map((item, index) => (
+                        {announcementArray.reverse().map((item, index) => (
                             <div key={index} className="announcementCard">
-                                <h2 className="announcementTitle">{item.content.title}</h2>
-                                <p className="announcementInfo">{item.metadata.author}, {item.metadata.datestring}</p>
-                                <p className="announcementText">{item.content.text}</p>
+                                <h2 className="announcementTitle">{item.title}</h2>
+                                <p className="announcementInfo">{item.author}, {item.datestring}</p>
+                                <p className="announcementText">{item.text}</p>
                             </div>
                         ))}
                     </div>
@@ -56,6 +57,7 @@ export default function Dashboard() {
                         <Link to="/inventory" className="sidebarLink">Inventory</Link>
                         <Link to="/battery-managment" className="sidebarLink">Batteries</Link>
                         <Link to="/purchase-request" className="sidebarLink">Purchase Requests</Link>
+                        <Link to="/create-announcement" className="sidebarLink">Create Announcement</Link>
                     </div>
                     <div className="sidebarItem">
                         <p className="sidebarTitleH2">Me</p>

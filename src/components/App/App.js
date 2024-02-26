@@ -14,6 +14,7 @@ import BMS from "../BMS/BMS";
 import Events from "../Events/Events";
 import Inventory from "../Inventory/Inventory";
 import Purchase from "../Purchase/Purchase";
+import NewPost from "../Announcement/Announcement"
 
 function App() {
     return (
@@ -38,6 +39,9 @@ function App() {
                     <Routes>
                         <Route exact path='/' element={<PrivateRoute/>}>
                             <Route exact path='/' element={<Dashboard/>}/>
+                        </Route>
+                        <Route exact path='/create-announcement' element={<PrivateRoute/>}>
+                            <Route exact path='/create-announcement' element={<NewPost/>}/>
                         </Route>
                         <Route exact path='/preferences' element={<PrivateRoute/>}>
                             <Route exact path='/preferences' element={<Preferences/>}/>
